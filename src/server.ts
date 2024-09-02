@@ -24,6 +24,14 @@ app.post('/cars', (req: Request, res: Response) => {
 	cars.push('volvo')
 	res.sendStatus(200)
 })
+interface CarModel {
+	model: string;
+}
+app.post('/cars/:model', (req: Request<CarModel>, res: Response) => {
+	const newCar: string = req.params.model
+	cars.push(newCar)
+	res.sendStatus(200)
+})
 
 
 app.listen(port, () => {
