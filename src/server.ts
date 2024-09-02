@@ -1,8 +1,16 @@
-import express, { Express, Request, Response } from 'express'
+import express, { Express, NextFunction, Request, Response } from 'express'
 const app: Express = express()
 const port = 1337
 
 let counter = 0
+
+// Middleware
+app.use('/', (req: Request, res: Response, next: NextFunction) => {
+	console.log(`${req.method}  ${req.url} `, req.body)
+	next()
+	// Man måste antingen anropa NEXT eller RES.SEND
+})
+
 
 // Endpoints
 app.get('/', (req: Request, res: Response) => {
