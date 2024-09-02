@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+	"build-and-start": "npm run build && npm run start"
   },
   "keywords": [],
   "author": "",
